@@ -114,7 +114,7 @@ func (s SigningMethodVaultTransit) Sign(signingString string, key interface{}) (
 
 	_, signature, err := signVault(ctx, *config, config.Logical, hashType, digest.Sum(nil))
 	if err != nil {
-		return nil, fmt.Errorf("could not sign using Vault: %+v", err)
+		return nil, fmt.Errorf("could not sign using Vault: %w", err)
 	}
 
 	return signature, nil
